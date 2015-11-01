@@ -34,25 +34,23 @@ def binary_multiple_of_4? s
   # YOUR CODE HERE
 int = s.to_i(2)
 matching = /[^0-1]/.match(s)
-(int % 4 == 0 and matching == nil and !s.empty?) ? true : false 
+(int % 4 == 0 and matching == nil and !s.empty?) ? true : false
 end
 
 # Part 3
 
 class BookInStock
 # YOUR CODE HERE
-  def initialize(isbn, price) 
+  def initialize(isbn, price)
     raise ArgumentError, 'ISBN cannot be empty' if isbn.length == 0
     raise ArgumentError, 'invalid ISBN' if !isbn =~ /[^0-9\-]/
     raise ArgumentError, 'Price has to be greater than zero' if price <= 0
     @isbn = isbn
     @price = price
   end
- 
   attr_accessor :isbn
   attr_accessor :price
- 
-  def price_as_string
+ def price_as_string
     return "\$" + sprintf("%.2f" % @price)
   end
 end
